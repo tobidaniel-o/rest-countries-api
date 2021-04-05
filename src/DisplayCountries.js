@@ -1,5 +1,4 @@
 import React from "react";
-import SearchCountries from "./SearchCountries";
 
 const DisplayCountries = ({ countries }) => {
   return (
