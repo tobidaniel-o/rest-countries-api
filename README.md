@@ -2,7 +2,7 @@
 
 This project integrates with the [REST Countries API](https://restcountries.eu) to pull country data and display it.
 
-The React (https://reactjs.org) library was used on the front-end. Scss/CSS was used for the styling of the page.
+The React (https://reactjs.org) library was used on the front-end. SCSS/BEM/CSS was used for the styling of the page.
 
 Firebase used for persistent data.
 
@@ -15,11 +15,41 @@ The project allows users to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode
 
-## Deploying your project
-Project is on deployed on Netlify on this URL address - 
+=> call the API using the useEffect()
+=> hard code four countries from each of the region to be displayed on page load
 
+=> on page load, it displays random countries
+  => display at most 20 random countries from different region. 
+  => random countries will be put in an array and math.random will be applied on them
+=> create an input field that will accept input to search for a country after the region has been picked from the dropdown menu. This input field will maintain a state and have an onChange function
+=> create a dropdown menu that will filter the countries by region. A state will maintain this as well.
+=> when a region is picked, the list of the countries in that region is displayed. A state will be used to maintain also. Possibly a useState with an empty array
+=> each country display will have detailed information about them. 
+all
+Search by all countries:
+https://restcountries.eu/rest/v2/all
+
+Search by country name. It can be the native name or partial name: 
+https://restcountries.eu/rest/v2/name/{name}
+e.g https://restcountries.eu/rest/v2/name/united
+
+Search by region: Africa, Americas, Asia, Europe, Oceania:
+https://restcountries.eu/rest/v2/region/{region}
+e.g https://restcountries.eu/rest/v2/region/europe
+
+
+COMPONENTS:
+Display component
+Search component
+Loading component
+
+
+## Deploying your project
+
+Project is deployed on Netlify on this URL address -
 
 ## STYLE GUIDE
+
 # Front-end Style Guide
 
 ## Layout
@@ -45,7 +75,7 @@ The designs were created to the following widths:
 ### Body Copy
 
 - Homepage Items: 14px
-- Detail Page: 16px 
+- Detail Page: 16px
 
 ### Fonts
 
@@ -53,6 +83,7 @@ The designs were created to the following widths:
 - Weights: 300, 600, 800
 
 ## Icons
+
 - [Font Awesome](https://fontawesome.com)
 - [IcoMoon](https://icomoon.io)
 - [Ionicons](https://ionicons.com)
