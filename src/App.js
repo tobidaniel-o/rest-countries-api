@@ -30,34 +30,23 @@ const App = () => {
     fetchCountries();
   }, []);
 
-  // const getJobs = (chosenJob) => {
-  //   // the code that will filter out and make a new array of user's chosen department
-  //   // make a copy of all the jobs
-  //   const copyOfAllJobs = [...jobs];
-  //   // filter out only jobs with user's selection
-  //   const filteredJobsArray = copyOfAllJobs.filter((job) => {
-  //     return job.categories.department === chosenJob;
-  //   });
-
-  //   // Update filteredJobs array
-  //   setFilteredJobs(filteredJobsArray);
-  // };
-
   const getRegionCountries = (chosenRegion) => {
     // the code that will filter out and make a new array of user's chosen region
     // make a copy of the region
     const copyOfRegion = [...region];
 
     //filter out only countries with the user's region selection
-    const filteredCountriesByRegion = copyOfRegion.filter((region) => {
-      
-    })
+    const filteredCountriesByRegion = copyOfRegion.filter((regionData) => {
+      return regionData.region === chosenRegion;
+    });
+    // Update filteredJobs array
+    setFilteredCountries(filteredCountriesByRegion);
   };
 
   return (
     <div>
-      <SearchCountries />
-      {/* <DisplayCountries countries={countries} /> */}
+      <SearchCountries filterCountries={getRegionCountries} />
+      <DisplayCountries countries={filteredCountries} />
     </div>
   );
 };

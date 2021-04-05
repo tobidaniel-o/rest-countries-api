@@ -11,7 +11,7 @@ const SearchCountries = ({ filterCountries }) => {
     console.log(inputValue);
     setSearchByRegion(inputValue);
 
-    // filterCountries(inputValue);
+    filterCountries(inputValue);
   };
 
   const inputChange = (event) => {
@@ -19,7 +19,7 @@ const SearchCountries = ({ filterCountries }) => {
     const inputValue = event.target.value;
     console.log(inputValue);
     setSearchByCountry(inputValue);
-    // filterCountries(inputValue);
+    filterCountries(inputValue);
   };
 
   return (
@@ -29,7 +29,7 @@ const SearchCountries = ({ filterCountries }) => {
       <select name="filterByRegion" id="filterByRegion" onChange={handleChange}>
         <option value="">Filter by Region</option>
         <option value="Africa">Africa</option>
-        <option value="America">America</option>
+        <option value="Americas">America</option>
         <option value="Asia">Asia</option>
         <option value="Europe">Europe</option>
         <option value="Oceania">Oceania</option>
