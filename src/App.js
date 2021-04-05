@@ -12,15 +12,18 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [region, setRegion] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [findCountryByName, setFindCountryByName] = useState([]);
 
   const fetchCountries = async () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-
-      // console.log(data);
       setRegion(data);
       setFilteredCountries(data);
+
+      // Get data to filter by country name
+      setFindCountryByName(data);
+
     } catch (error) {
       console.log(error);
     }
@@ -30,22 +33,27 @@ const App = () => {
     fetchCountries();
   }, []);
 
-  const getRegionCountries = (chosenRegion) => {
+  const filterCountriesByRegion = (chosenRegion) => {
     // the code that will filter out and make a new array of user's chosen region
     // make a copy of the region
     const copyOfRegion = [...region];
 
     //filter out only countries with the user's region selection
-    const filteredCountriesByRegion = copyOfRegion.filter((regionData) => {
+    const allfilteredCountries = copyOfRegion.filter((regionData) => {
       return regionData.region === chosenRegion;
     });
     // Update filteredJobs array
-    setFilteredCountries(filteredCountriesByRegion);
+    setFilteredCountries(allfilteredCountries);
   };
+
+
 
   return (
     <div>
-      <SearchCountries filterCountries={getRegionCountries} />
+      <SearchCountries
+        filterCountriesByRegion={filterCountriesByRegion}
+  
+      />
       <DisplayCountries countries={filteredCountries} />
     </div>
   );
