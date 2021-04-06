@@ -14,7 +14,6 @@ const SearchCountries = ({ filterCountriesByRegion, findCountryByName }) => {
   };
 
   const inputChange = (event) => {
-    event.preventDefault();
     const inputValue = event.target.value;
     console.log(inputValue);
     setSearchByCountryName(inputValue);

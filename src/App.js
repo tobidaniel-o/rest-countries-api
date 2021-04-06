@@ -23,7 +23,6 @@ const App = () => {
 
       // Get data to filter by country name
       setFindCountryByName(data);
-
     } catch (error) {
       console.log(error);
     }
@@ -46,13 +45,19 @@ const App = () => {
     setFilteredCountries(allfilteredCountries);
   };
 
-
+  const filterByName = (chosenName) => {
+    const copyOfCountries = [...findCountryByName];
+    const filteredCountry = copyOfCountries.filter((country) => {
+      return country.name === chosenName;
+    });
+    setFindCountryByName(filteredCountry)
+  };
 
   return (
     <div>
       <SearchCountries
         filterCountriesByRegion={filterCountriesByRegion}
-  
+        findCountryByName={filterByName}
       />
       <DisplayCountries countries={filteredCountries} />
     </div>
