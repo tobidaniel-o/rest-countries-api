@@ -12,7 +12,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [region, setRegion] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
-  const [findCountryByName, setFindCountryByName] = useState([]);
+  const [findCountryByName, setFindCountryByName] = useState("");
 
   const fetchCountries = async () => {
     try {
@@ -45,20 +45,18 @@ const App = () => {
     setFilteredCountries(allfilteredCountries);
   };
 
-  const filterByName = (chosenName) => {
-    const copyOfCountries = [...findCountryByName];
-    const filteredCountry = copyOfCountries.filter((country) => {
-      return country.name === chosenName;
+  const getCountryByName = (chosenCountryName) => {
+    const getCountry = [...findCountryByName];
+
+    const getCountryName = getCountry.filter((country) => {
+      return country.name === chosenCountryName;
     });
-    setFindCountryByName(filteredCountry)
+    setFindCountryByName(getCountryName);
   };
 
   return (
     <div>
-      <SearchCountries
-        filterCountriesByRegion={filterCountriesByRegion}
-        findCountryByName={filterByName}
-      />
+      <SearchCountries filterCountriesByRegion={filterCountriesByRegion} />
       <DisplayCountries countries={filteredCountries} />
     </div>
   );
