@@ -1,12 +1,12 @@
 import React from "react";
 
-const DisplayCountries = ({ countries }) => {
+const DisplayCountries = ({ displayData }) => {
   return (
     <div>
-      {countries.map((country, key) => {
+      {displayData.map((country, key) => {
         return (
           <div key={key}>
-            <img src={country.flag} alt="flag"/>
+            <img src={country.flag} alt="flag" />
             <p>{country.name}</p>
             <p>{country.population}</p>
             <p>{country.region}</p>

@@ -1,63 +1,58 @@
 import React, { useState, useEffect } from "react";
 import Loading from "./Loading";
 import DisplayCountries from "./DisplayCountries";
-import SearchCountries from "./UserSelect";
-
-const region = "Europe";
-// const url = `https://restcountries.eu/rest/v2/region/${region}`;
-const url = `https://restcountries.eu/rest/v2/all`;
+import UserSelect from "./UserSelect";
 
 const App = () => {
   // 1. Initialize state
-  const [loading, setLoading] = useState(true);
-  const [region, setRegion] = useState([]);
-  const [filteredCountries, setFilteredCountries] = useState([]);
-  const [findCountryByName, setFindCountryByName] = useState("");
+  const [displayData, setDisplayData] = useState([]);
+  const region = "Europe";
+  
+  // store the API in a variable
+  const url = `https://restcountries.eu/rest/v2/region/${region}`;
 
-  const fetchCountries = async () => {
+  const fetchData = async () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      setRegion(data);
-      setFilteredCountries(data);
-
-      // Get data to filter by country name
-      setFindCountryByName(data);
+      console.log(data);
+      setDisplayData(data);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    fetchCountries();
+    fetchData();
   }, []);
 
-  const filterCountriesByRegion = (chosenRegion) => {
-    // the code that will filter out and make a new array of user's chosen region
-    // make a copy of the region
-    const copyOfRegion = [...region];
+  // const filterCountriesByRegion = (chosenRegion) => {
+  //   // the code that will filter out and make a new array of user's chosen region
+  //   // make a copy of the region
+  //   const copyOfRegion = [...region];
 
-    //filter out only countries with the user's region selection
-    const allfilteredCountries = copyOfRegion.filter((regionData) => {
-      return regionData.region === chosenRegion;
-    });
-    // Update filteredJobs array
-    setFilteredCountries(allfilteredCountries);
-  };
+  //   //filter out only countries with the user's region selection
+  //   const allfilteredCountries = copyOfRegion.filter((regionData) => {
+  //     return regionData.region === chosenRegion;
+  //   });
+  //   // Update filteredJobs array
+  //   setFilteredCountries(allfilteredCountries);
+  // };
 
-  const getCountryByName = (chosenCountryName) => {
-    const getCountry = [...findCountryByName];
+  // const getCountryByName = (chosenCountryName) => {
+  //   const getCountry = [...findCountryByName];
 
-    const getCountryName = getCountry.filter((country) => {
-      return country.name === chosenCountryName;
-    });
-    setFindCountryByName(getCountryName);
-  };
+  //   const getCountryName = getCountry.filter((country) => {
+  //     return country.name === chosenCountryName;
+  //   });
+  //   setFindCountryByName(getCountryName);
+  // };
 
   return (
     <div>
-      <SearchCountries filterCountriesByRegion={filterCountriesByRegion} />
-      <DisplayCountries countries={filteredCountries} />
+      <UserSelect />
+      {/* <SearchCountries filterCountriesByRegion={filterCountriesByRegion} /> */}
+      <DisplayCountries displayData={displayData} />
     </div>
   );
 };

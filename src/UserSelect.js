@@ -1,27 +1,14 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const SearchCountries = ({ filterCountriesByRegion }) => {
-  const [searchByRegion, setSearchByRegion] = useState("");
+const SearchCountries = () => {
 
-  const handleChange = (event) => {
-    event.preventDefault();
-    const inputValue = event.target.value;
-    console.log(inputValue);
-    setSearchByRegion(inputValue);
-    filterCountriesByRegion(inputValue);
-  };
 
   return (
     <form>
       <input type="text" placeholder="Search for a country..." />
-      <label htmlFor="filterByRegion"></label>
-      <select
-        name="filterByRegion"
-        id="filterByRegion"
-        value={searchByRegion}
-        onChange={handleChange}
-      >
+      <label htmlFor="getCountriesByRegion"></label>
+      <select name="getCountriesByRegion" id="getCountriesByRegion">
         <option value="">Filter by Region</option>
         <option value="Africa">Africa</option>
         <option value="Americas">America</option>

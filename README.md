@@ -6,9 +6,13 @@ The React (https://reactjs.org) library was used on the front-end. SCSS/BEM/CSS 
 
 Firebase used for persistent data.
 
+
 The project allows users to:
 
 - See all countries from the API on the homepage
+ - On page load, random countries from different regions will be displayed
+  - call the API from inside the DisplayCountries and shuffle the countries. Limit results to 20 countries.
+  
 - Search for a country using an `input` field
 - Filter countries by region
 - Click on a country to see more detailed information on a separate page
@@ -39,9 +43,10 @@ e.g https://restcountries.eu/rest/v2/region/europe
 
 
 COMPONENTS:
-Display component
-Search component
-Loading component
+Main component - App.js
+DisplayCountries component - Display.js
+Search component - Search.js
+Loading component - Loading.js
 
 
 ## Deploying your project
