@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from "react";
 import Loading from "./Loading";
-import DisplayCountries from "./DisplayCountries";
+import DisplayRandomCountries from "./DisplayRandomCountries";
 import UserSelect from "./UserSelect";
 
 const App = () => {
   // 1. Initialize state
-  const [displayData, setDisplayData] = useState([]);
-  const region = "Europe";
-  
-  // store the API in a variable
-  const url = `https://restcountries.eu/rest/v2/region/${region}`;
+  // const [displayData, setDisplayData] = useState([]);
+  // const region = "Europe";
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log(data);
-      setDisplayData(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // // store the API in a variable
+  // const url = `https://restcountries.eu/rest/v2/region/${region}`;
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch(url);
+  //     const data = await response.json();
+  //     console.log(data);
+  //     setDisplayData(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   // const filterCountriesByRegion = (chosenRegion) => {
   //   // the code that will filter out and make a new array of user's chosen region
@@ -52,7 +52,7 @@ const App = () => {
     <div>
       <UserSelect />
       {/* <SearchCountries filterCountriesByRegion={filterCountriesByRegion} /> */}
-      <DisplayCountries displayData={displayData} />
+      <DisplayRandomCountries />
     </div>
   );
 };

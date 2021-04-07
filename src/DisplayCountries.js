@@ -1,6 +1,7 @@
 import React from "react";
 
 const DisplayCountries = ({ displayData }) => {
+  
   return (
     <div>
       {displayData.map((country, key) => {
