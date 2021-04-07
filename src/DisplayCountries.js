@@ -1,10 +1,10 @@
 import React from "react";
 
-const DisplayCountries = ({ displayData }) => {
+const DisplayCountries = ({ region }) => {
   
   return (
     <div>
-      {displayData.map((country, key) => {
+      {region.map((country, key) => {
         return (
           <div key={key}>
             <img src={country.flag} alt="flag" />
