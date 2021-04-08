@@ -1,11 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import DisplayRandomCountries from "./DisplayRandomCountries";
-import DisplayCountries from "./DisplayCountries";
 
 const UserSelect = () => {
-  const [region, setRegion] = useState([]);
-  const [country, setCountry] = useState([]);
+  const [data, setData] = useState([]);
   const [countryName, setCountryName] = useState("");
   const [regionName, setRegionName] = useState("");
 
@@ -14,9 +11,9 @@ const UserSelect = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      setRegion(data);
-      setCountry(data);
-      console.log(data);
+      const newData = data.sort((a, b) => 0.5 - Math.random());
+      setData(newData);
+      console.log(newData);
     } catch (error) {
       console.log(error);
     }
@@ -32,7 +29,7 @@ const UserSelect = () => {
           className="input"
           type="text"
           placeholder="Search for a country..."
-          name={countryName}
+          value={countryName}
           onChange={(event) => {
             setCountryName(event.target.value);
             console.log(event.target.value);
@@ -56,9 +53,8 @@ const UserSelect = () => {
           <option value="oceania">Oceania</option>
         </select>
       </form>
-      {/* <DisplayCountries region={region} /> */}
       <div>
-        {country
+        {data
           .filter((val) => {
             if (countryName === "") {
               return val;
@@ -81,6 +77,14 @@ const UserSelect = () => {
               </div>
             );
           })}
+
+        {/* if (regionName === "") {
+              return val;
+            } else if (
+              val.region.toLowerCase().includes(regionName.toLowerCase())
+            ) {
+              return val.region;
+            } */}
       </div>
     </>
   );
