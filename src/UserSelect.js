@@ -5,6 +5,7 @@ import DisplayCountries from "./DisplayCountries";
 
 const UserSelect = () => {
   const [region, setRegion] = useState([]);
+  const [country, setCountry] = useState([]);
   const [countryName, setCountryName] = useState("");
   const [regionName, setRegionName] = useState("");
 
@@ -14,6 +15,7 @@ const UserSelect = () => {
       const response = await fetch(url);
       const data = await response.json();
       setRegion(data);
+      setCountry(data);
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -56,7 +58,7 @@ const UserSelect = () => {
       </form>
       {/* <DisplayCountries region={region} /> */}
       <div>
-        {region
+        {country
           .filter((val) => {
             if (countryName === "") {
               return val;
@@ -68,8 +70,14 @@ const UserSelect = () => {
           })
           .map((val, key) => {
             return (
-              <div key={key} className="user">
-                {val.name}
+              <div key={key}>
+                <img src={val.flag} alt="flag" />
+                <p>{val.name}</p>
+                <p>{val.population}</p>
+                <p>{val.region}</p>
+                <p>{val.capital}</p>
+                <p>{val.languages[0].name}</p>
+                <br />
               </div>
             );
           })}
