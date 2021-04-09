@@ -17,6 +17,7 @@ body {
 
 .header {
   background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .headerDetails {
@@ -44,5 +45,17 @@ body {
 
 .headerDetails .darkMode .faMoon {
   margin-right: 0.5rem;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  outline: none;
+  border: 2px solid #eeeeee;
+  font-size: 1.6rem;
+  font-family: "Nunito Sans", sans-serif;
+  color: black;
 }
 /*# sourceMappingURL=App.css.map */

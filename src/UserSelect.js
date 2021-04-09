@@ -14,7 +14,9 @@ const UserSelect = () => {
       const data = await response.json();
       const newData = data.sort((a, b) => 0.5 - Math.random());
       setData(newData);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     fetchData();
@@ -22,7 +24,7 @@ const UserSelect = () => {
 
   return (
     <>
-      <form>
+      <form className="wrapper">
         <input
           className="input"
           type="text"
@@ -52,7 +54,11 @@ const UserSelect = () => {
         </select>
       </form>
       <div>
-        <DisplayCountries data={data} regionName = {regionName} countryName = {countryName} />
+        <DisplayCountries
+          data={data}
+          regionName={regionName}
+          countryName={countryName}
+        />
         {/* {data
           .filter((val) => {
             return (
