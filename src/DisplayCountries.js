@@ -1,33 +1,9 @@
 import React from "react";
-import { useEffect, useState } from "react";
 
-const DisplayCountries = () => {
-  const [data, setData] = useState([]);
-  const fetchData = async () => {
-    const url = `https://restcountries.eu/rest/v2/all`;
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      const newData = data.sort((a, b) => 0.5 - Math.random());
-      setData(newData);
-      console.log(newData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+const DisplayCountries = ({countries}) => {
   return (
     <div>
-      {data
-        .filter((val) => {
-          return (
-            val.region.toLowerCase().includes(regionName.toLowerCase()) &&
-            val.name.toLowerCase().includes(countryName.toLowerCase())
-          );
-        })
+      {countries
         .map((val, key) => {
           return (
             <div key={key}>
