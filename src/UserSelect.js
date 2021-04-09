@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import DisplayCountries from "./DisplayCountries"
 
 const UserSelect = () => {
   const [data, setData] = useState([]);
@@ -21,6 +22,7 @@ const UserSelect = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
 
   return (
     <>
@@ -54,15 +56,13 @@ const UserSelect = () => {
         </select>
       </form>
       <div>
+        {/* <DisplayCountries data={data} /> */}
         {data
           .filter((val) => {
-            if (countryName === "") {
-              return val;
-            } else if (
+            return (
+              val.region.toLowerCase().includes(regionName.toLowerCase()) &&
               val.name.toLowerCase().includes(countryName.toLowerCase())
-            ) {
-              return val.name;
-            }
+            );
           })
           .map((val, key) => {
             return (
@@ -77,14 +77,6 @@ const UserSelect = () => {
               </div>
             );
           })}
-
-        {/* if (regionName === "") {
-              return val;
-            } else if (
-              val.region.toLowerCase().includes(regionName.toLowerCase())
-            ) {
-              return val.region;
-            } */}
       </div>
     </>
   );
