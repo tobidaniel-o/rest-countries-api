@@ -2,26 +2,26 @@ import React from "react";
 import { useState, useEffect } from "react";
 import DisplayCountries from "./DisplayCountries"
 
-const UserSelect = () => {
-  const [data, setData] = useState([]);
+const UserSelect = ({filterCountries}) => {
+  // const [data, setData] = useState([]);
   const [countryName, setCountryName] = useState("");
   const [regionName, setRegionName] = useState("");
 
-  const fetchData = async () => {
-    const url = `https://restcountries.eu/rest/v2/all`;
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      const newData = data.sort((a, b) => 0.5 - Math.random());
-      setData(newData);
-      console.log(newData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // const fetchData = async () => {
+  //   const url = `https://restcountries.eu/rest/v2/all`;
+  //   try {
+  //     const response = await fetch(url);
+  //     const data = await response.json();
+  //     const newData = data.sort((a, b) => 0.5 - Math.random());
+  //     setData(newData);
+  //     console.log(newData);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
 
   return (
@@ -34,6 +34,7 @@ const UserSelect = () => {
           value={countryName}
           onChange={(event) => {
             setCountryName(event.target.value);
+            filterCountries(event.target.value)
             console.log(event.target.value);
           }}
         />
@@ -44,6 +45,7 @@ const UserSelect = () => {
           value={regionName}
           onChange={(event) => {
             setRegionName(event.target.value);
+            filterCountries(event.target.value)
             console.log(event.target.value);
           }}
         >

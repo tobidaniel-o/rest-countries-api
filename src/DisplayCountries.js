@@ -1,6 +1,24 @@
 import React from "react";
+import { useEffect, useState } from "react";
 
-const DisplayCountries = ({ data }) => {
+const DisplayCountries = () => {
+  const [data, setData] = useState([]);
+  const fetchData = async () => {
+    const url = `https://restcountries.eu/rest/v2/all`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const newData = data.sort((a, b) => 0.5 - Math.random());
+      setData(newData);
+      console.log(newData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div>
       {data
