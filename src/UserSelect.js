@@ -13,10 +13,7 @@ const UserSelect = () => {
       const data = await response.json();
       const newData = data.sort((a, b) => 0.5 - Math.random());
       setData(newData);
-      console.log(newData);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   useEffect(() => {
     fetchData();
