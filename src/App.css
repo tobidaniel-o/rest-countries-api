@@ -14,4 +14,35 @@ body {
   width: 90%;
   margin: 0 auto;
 }
+
+.header {
+  background-color: #ffffff;
+}
+
+.headerDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 4rem 0;
+}
+
+.headerDetails h1 {
+  font-weight: bold;
+}
+
+.headerDetails .darkMode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.headerDetails .darkMode .faMoon {
+  margin-right: 0.5rem;
+}
 /*# sourceMappingURL=App.css.map */

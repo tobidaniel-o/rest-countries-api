@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import DisplayCountries from "./DisplayCountries";
 
 const UserSelect = () => {
   const [data, setData] = useState([]);
@@ -51,7 +52,8 @@ const UserSelect = () => {
         </select>
       </form>
       <div>
-        {data
+        <DisplayCountries data={data} regionName = {regionName} countryName = {countryName} />
+        {/* {data
           .filter((val) => {
             return (
               val.region.toLowerCase().includes(regionName.toLowerCase()) &&
@@ -70,7 +72,7 @@ const UserSelect = () => {
                 <br />
               </div>
             );
-          })}
+          })} */}
       </div>
     </>
   );

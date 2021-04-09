@@ -15,3 +15,26 @@ body {
   width: 90%;
   margin: 0 auto;
 }
+
+.header {
+  background-color: #ffffff;
+}
+
+.headerDetails {
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem 0;
+
+  h1 {
+    font-weight: bold;
+  }
+
+  .darkMode {
+    display: flex;
+    justify-content: space-between;
+
+    .faMoon {
+      margin-right: 0.5rem;
+    }
+  }
+}
