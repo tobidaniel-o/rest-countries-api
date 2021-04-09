@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import DisplayCountries from "./DisplayCountries"
 
 const UserSelect = () => {
   const [data, setData] = useState([]);
@@ -22,7 +21,6 @@ const UserSelect = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
 
   return (
     <>
@@ -56,7 +54,6 @@ const UserSelect = () => {
         </select>
       </form>
       <div>
-        {/* <DisplayCountries data={data} /> */}
         {data
           .filter((val) => {
             return (
