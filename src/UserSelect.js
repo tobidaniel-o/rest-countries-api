@@ -1,3 +1,4 @@
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { useState, useEffect } from "react";
 import DisplayCountries from "./DisplayCountries";
@@ -53,13 +54,13 @@ const UserSelect = () => {
           <option value="oceania">Oceania</option>
         </select>
       </form>
-      <div>
-        <DisplayCountries
-          data={data}
-          regionName={regionName}
-          countryName={countryName}
-        />
-        {/* {data
+      <DisplayCountries
+        className="displayContainer"
+        data={data}
+        regionName={regionName}
+        countryName={countryName}
+      />
+      {/* {data
           .filter((val) => {
             return (
               val.region.toLowerCase().includes(regionName.toLowerCase()) &&
@@ -79,7 +80,6 @@ const UserSelect = () => {
               </div>
             );
           })} */}
-      </div>
     </>
   );
 };
