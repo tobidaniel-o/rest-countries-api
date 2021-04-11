@@ -1,4 +1,9 @@
+import ReactPaginate from "react-paginate";
+
+
 const DisplayCountries = ({ data, regionName, countryName }) => {
+
+  
   return data
     .filter((val) => {
       return (

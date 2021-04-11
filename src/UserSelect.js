@@ -2,11 +2,15 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { useState, useEffect } from "react";
 import DisplayCountries from "./DisplayCountries";
+import ReactPaginate from "react-paginate";
+
 
 const UserSelect = () => {
   const [data, setData] = useState([]);
   const [countryName, setCountryName] = useState("");
   const [regionName, setRegionName] = useState("");
+
+
 
   const fetchData = async () => {
     const url = `https://restcountries.eu/rest/v2/all`;
@@ -59,6 +63,8 @@ const UserSelect = () => {
         regionName={regionName}
         countryName={countryName}
       />
+
+
       {/* {data
           .filter((val) => {
             return (
