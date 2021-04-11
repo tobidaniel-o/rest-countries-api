@@ -1,9 +1,6 @@
-import ReactPaginate from "react-paginate";
-
+import { useState } from "react";
 
 const DisplayCountries = ({ data, regionName, countryName }) => {
-
-  
   return data
     .filter((val) => {
       return (
@@ -33,6 +30,7 @@ const DisplayCountries = ({ data, regionName, countryName }) => {
           </div>
         </div>
       );
+      
     });
 };
 
