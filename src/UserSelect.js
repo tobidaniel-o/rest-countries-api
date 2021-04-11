@@ -7,10 +7,9 @@ const UserSelect = () => {
   const [data, setData] = useState([]);
   const [countryName, setCountryName] = useState("");
   const [regionName, setRegionName] = useState("");
-  // Newly added data
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(20);
+  const [postsPerPage] = useState(25);
 
   const fetchData = async () => {
     setLoading(true);
@@ -31,7 +30,7 @@ const UserSelect = () => {
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
+  const currentData = data.slice(indexOfFirstPost, indexOfLastPost);
 
   // Change page
   const paginate = (pageNumber) => {
@@ -75,7 +74,7 @@ const UserSelect = () => {
         paginate={paginate}
       />
       <DisplayCountries
-        data={currentPosts}
+        data={currentData}
         regionName={regionName}
         countryName={countryName}
         loading={loading}

@@ -64,6 +64,18 @@ select {
   font-size: 1.8rem;
   margin-bottom: 2rem;
 }
+.pagination {
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    text-decoration: none;
+  }
+
+  a {
+    color: #999999;
+  }
+}
 
 .displayContainer {
   width: 85%;
@@ -96,7 +108,6 @@ select {
     font-weight: 600;
   }
 }
-
 
 .loading {
   text-align: center;
