@@ -55,7 +55,6 @@ const UserSelect = () => {
         </select>
       </form>
       <DisplayCountries
-        className="displayContainer"
         data={data}
         regionName={regionName}
         countryName={countryName}

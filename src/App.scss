@@ -54,7 +54,7 @@ body {
 }
 
 select {
-  padding: 1.5rem 1.2rem;
+  padding: 1.2rem 1.2rem;
   width: 60%;
   outline: none;
   border: 2px solid #eeeeee;
@@ -62,13 +62,37 @@ select {
   border-radius: 5px;
   color: #999999;
   font-size: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .displayContainer {
-  margin-top: 5rem;
-  padding: 0 4rem;
-  width: 80%;
-}
-.img {
-  width: 100%;
+  width: 85%;
+  margin: 3rem auto;
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
+  .img {
+    width: 100%;
+  }
+
+  .detailsContainer {
+    padding: 3rem 2rem 0;
+    border-top: 1px solid #eeeeee;
+
+    p {
+      line-height: 2rem;
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  p.countryName {
+    font-weight: 800;
+    font-size: 2.5rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1.9rem;
+  }
+
+  span {
+    font-weight: 600;
+  }
 }

@@ -8,14 +8,24 @@ const DisplayCountries = ({ data, regionName, countryName }) => {
     })
     .map((val, key) => {
       return (
-        <div key={key}>
-          <img src={val.flag} alt="flag" className="" img />
-          <p>{val.name}</p>
-          <p>{val.population}</p>
-          <p>{val.region}</p>
-          <p>{val.capital}</p>
-          {/* <p>{val.languages[0].name}</p> */}
-          <br />
+        <div key={key} className="displayContainer">
+          <div className="imgContainer">
+            <img src={val.flag} alt="flag" className="img" />
+          </div>
+          <div className="detailsContainer">
+            <p className="countryName">{val.name}</p>
+            <p>
+              <span>Population: </span> {val.population}
+            </p>
+            <p>
+              <span>Region: </span> {val.region}
+            </p>
+            <p>
+              <span>Capital:</span> {val.capital}
+            </p>
+            {/* <p>{val.languages[0].name}</p> */}
+            <br />
+          </div>
         </div>
       );
     });
