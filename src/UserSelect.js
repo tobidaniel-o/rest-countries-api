@@ -1,24 +1,23 @@
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { useState, useEffect } from "react";
 import DisplayCountries from "./DisplayCountries";
-import ReactPaginate from "react-paginate";
-
 
 const UserSelect = () => {
   const [data, setData] = useState([]);
   const [countryName, setCountryName] = useState("");
   const [regionName, setRegionName] = useState("");
 
-
+  const [loading, setLoading] = useState(false);
 
   const fetchData = async () => {
+    setLoading(true);
     const url = `https://restcountries.eu/rest/v2/all`;
     try {
       const response = await fetch(url);
       const data = await response.json();
       const newData = data.sort((a, b) => 0.5 - Math.random());
       setData(newData);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -62,8 +61,8 @@ const UserSelect = () => {
         data={data}
         regionName={regionName}
         countryName={countryName}
+        loading={loading}
       />
-
 
       {/* {data
           .filter((val) => {

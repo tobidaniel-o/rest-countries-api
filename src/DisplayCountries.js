@@ -1,9 +1,8 @@
-import ReactPaginate from "react-paginate";
+const DisplayCountries = ({ data, regionName, countryName, loading }) => {
+  if (loading) {
+    return <h2 className="loading">Please wait...</h2>;
+  }
 
-
-const DisplayCountries = ({ data, regionName, countryName }) => {
-
-  
   return data
     .filter((val) => {
       return (
