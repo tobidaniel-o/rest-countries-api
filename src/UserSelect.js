@@ -1,13 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import DisplayCountries from "./DisplayCountries";
+import Pagination from "./Pagination";
 
 const UserSelect = () => {
   const [data, setData] = useState([]);
   const [countryName, setCountryName] = useState("");
   const [regionName, setRegionName] = useState("");
-
+  // Newly added data
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(20);
 
   const fetchData = async () => {
     setLoading(true);
@@ -25,6 +28,15 @@ const UserSelect = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
+
+  // Change page
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <>
@@ -57,33 +69,17 @@ const UserSelect = () => {
           <option value="oceania">Oceania</option>
         </select>
       </form>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={data.length}
+        paginate={paginate}
+      />
       <DisplayCountries
-        data={data}
+        data={currentPosts}
         regionName={regionName}
         countryName={countryName}
         loading={loading}
       />
-
-      {/* {data
-          .filter((val) => {
-            return (
-              val.region.toLowerCase().includes(regionName.toLowerCase()) &&
-              val.name.toLowerCase().includes(countryName.toLowerCase())
-            );
-          })
-          .map((val, key) => {
-            return (
-              <div key={key}>
-                <img src={val.flag} alt="flag" />
-                <p>{val.name}</p>
-                <p>{val.population}</p>
-                <p>{val.region}</p>
-                <p>{val.capital}</p>
-                <p>{val.languages[0].name}</p>
-                <br />
-              </div>
-            );
-          })} */}
     </>
   );
 };
