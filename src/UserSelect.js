@@ -10,7 +10,7 @@ const UserSelect = () => {
   const [regionName, setRegionName] = useState("");
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(25);
+  const [postsPerPage] = useState(20);
 
   const fetchData = async () => {
     setLoading(true);
@@ -41,45 +41,50 @@ const UserSelect = () => {
   return (
     <>
       <form className="wrapper">
-        <input
-          className="input"
-          type="text"
-          placeholder="Search for a country..."
-          value={countryName}
-          onChange={(event) => {
-            setCountryName(event.target.value);
-            console.log(event.target.value);
-          }}
-        />
-        <label htmlFor="getCountriesByRegion"></label>
-        <select
-          name="getCountriesByRegion"
-          id="getCountriesByRegion"
-          value={regionName}
-          onChange={(event) => {
-            setRegionName(event.target.value);
-            console.log(event.target.value);
-          }}
-        >
-          <option value="">Filter by Region</option>
-          <option value="africa">Africa</option>
-          <option value="americas">America</option>
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
-          <option value="oceania">Oceania</option>
-        </select>
+        <div className="inputSelectContainer">
+          <input
+            className="input"
+            type="text"
+            placeholder="Search for a country..."
+            value={countryName}
+            onChange={(event) => {
+              setCountryName(event.target.value);
+              console.log(event.target.value);
+            }}
+          />
+          <label htmlFor="getCountriesByRegion"></label>
+          <select
+            name="getCountriesByRegion"
+            id="getCountriesByRegion"
+            value={regionName}
+            onChange={(event) => {
+              setRegionName(event.target.value);
+              console.log(event.target.value);
+            }}
+          >
+            <option value="">Filter by Region</option>
+            <option value="africa">Africa</option>
+            <option value="americas">America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
+          </select>
+        </div>
       </form>
       <Pagination
+        className="wrapper"
         postsPerPage={postsPerPage}
         totalPosts={data.length}
         paginate={paginate}
       />
-      <DisplayCountries
-        data={currentData}
-        regionName={regionName}
-        countryName={countryName}
-        loading={loading}
-      />
+      <div className="displayCountries wrapper">
+        <DisplayCountries
+          data={currentData}
+          regionName={regionName}
+          countryName={countryName}
+          loading={loading}
+        />
+      </div>
     </>
   );
 };
